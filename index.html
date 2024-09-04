@@ -8,10 +8,28 @@
 
 <body onload="onInit()">
     <h1>Mine Sweeper</h1>
-    
+
     <table class="board-container">
-        <tbody class="board"></tbody>
+        <tbody class="board" oncontextmenu="return false"></tbody>
     </table>
+
+    <div class="msgs">
+        <div class="win">
+            <h1>💗Congratulations!💗</h1>
+            <h2>🌸You Win!🌸</h2>
+            <button onclick="restart()">✨Restart Game?✨</button>
+        </div>
+        <div class="lose">
+            <h1>💩You lose💩</h1>
+            <h2>🌻better luck next time🌻</h2>
+            
+        </div>
+    </div>
+
+    <footer>
+        <hr>
+        🌸Effie Armony🌸
+    </footer>
 
     <script src="js/utils.js"></script>
     <script src="js/mineSweeper.js"></script>

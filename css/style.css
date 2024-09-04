@@ -1,3 +1,10 @@
+body {
+    background-color: rgb(249, 221, 216);
+    color: rgb(0, 150, 158);
+    text-align: center;
+}
+
+
 .board-container {
     min-width: 500px;
     min-height: 500px;
@@ -8,6 +15,35 @@
 .board td {
     width: 100px;
     height: 100px;
-   border: 2px solid #e1366f;
+   border: 2px solid #db678e;
     text-align: center;
+}
+
+
+footer{
+    font-size: large;
+    margin: 15px;
+}
+
+.win{
+    display: none;
+    border-radius: 20px;
+    width: 400px;
+    height: 150px;
+    background-color: rgb(252, 147, 182);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center
+}
+
+.victory button {
+    background-color: #f44085;
+}
+
+.victory button:hover {
+    background-color: #e33e7d;
+    cursor: pointer;
 }
