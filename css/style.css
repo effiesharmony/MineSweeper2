@@ -1,0 +1,13 @@
+.board-container {
+    min-width: 500px;
+    min-height: 500px;
+    background-color:  rgb(252, 147, 182);
+    margin: auto;
+}
+
+.board td {
+    width: 100px;
+    height: 100px;
+   border: 2px solid #e1366f;
+    text-align: center;
+}

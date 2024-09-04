@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(249, 221, 216);
+    color: rgb(0, 150, 158);
+    text-align: center;
+}
+
+.cell {
+    font-size: 1.5em;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+}
+
+.victory {
+    display: none;
+    border-radius: 20px;
+    width: 400px;
+    height: 150px;
+    background-color: rgb(252, 147, 182);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center
+}
+
+.victory button {
+    background-color: #f44085;
+}
+
+.victory button:hover {
+    background-color: #e33e7d;
+    cursor: pointer;
+}
