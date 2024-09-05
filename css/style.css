@@ -1,84 +1,49 @@
 body {
+    font-family: candara;
     background-color: rgb(253, 204, 196);
     color: rgb(0, 150, 158);
     text-align: center;
 }
 
-button {
-    margin: 10px;
-    padding: 5px;
-    background-color: rgb(169, 223, 224);
+h1{
+    margin-bottom: 5px;
 }
 
 .board-container {
-    min-width: 50px;
-    max-width: 700px;
-    min-height: 50px;
-    max-height: 300px;
     background-color: rgb(254, 156, 188);
     margin: auto;
+    margin-top: 15px;
 }
 
 .board td {
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
     border-top: 5px solid #f7c6d6;
     border-left: 5px solid #f7c6d6;
-    border-bottom: 5px solid #eb5084;
+    border-bottom: 5px solid #eb5050;
     border-right: 5px solid #eb5084;
     outline: 3px solid #e27096;
     text-align: center;
 }
 
+.topbar{
+    font-size: larger
+}
+
+button {
+    margin: 10px;
+    padding: 5px;
+    background-color: #fe9cbc;
+}
+
+button:hover {
+    background-color: #e33e7d;
+    cursor: pointer;
+}
 
 footer {
-    max-height: 20px;
-    margin: auto;
     text-align: center;
-    font-size: large;
-    margin: 15px;
-    bottom: 0 
-    
-}
-
-.win {
-    display: none;
-    border-radius: 20px;
-    width: 400px;
-    height: 200px;
-    background-color: rgb(252, 147, 182);
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center
-}
-
-.win button {
-    background-color: #f44085;
-}
-
-.win button:hover {
-    background-color: #e33e7d;
-    cursor: pointer;
-}
-
-.lose {
-    display: none;
-    border-radius: 20px;
-    width: 400px;
-    height: 200px;
-    background-color: rgb(252, 147, 182);
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center
-}
-
-.lose button:hover {
-    background-color: #e33e7d;
-    cursor: pointer;
+    position : absolute; bottom: 0;
+    width: 99%;
+    margin-bottom: 10px;
 }
