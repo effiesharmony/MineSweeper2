@@ -6,25 +6,30 @@
     <link rel="stylesheet" href="css/utils.css">
 </head>
 
-<body onload="onInit()">
+<body onload="onInit('beginner')">
     <h1>Mine Sweeper</h1>
+    <button onclick="restart('beginner')">Beginner</button>
+    <button onclick="restart('medium')">Medium</button>
+    <button onclick="restart('expert')">Expert</button>
+
+    <div class="msgs">
+        <div class="win">
+            <h1>💗Congratulations!💗</h1>
+            <h4>🌸You Win!🌸</h4>
+            <button onclick="restart('medium')">✨Restart Game?✨</button>
+        </div>
+        <div class="lose">
+            <h1>💩You lose💩</h1>
+            <h4>🌻better luck next time🌻</h4>
+            <button onclick="restart('beginner')">✨Restart Game?✨</button>
+            
+        </div>
+    </div>
 
     <table class="board-container">
         <tbody class="board" oncontextmenu="return false"></tbody>
     </table>
 
-    <div class="msgs">
-        <div class="win">
-            <h1>💗Congratulations!💗</h1>
-            <h2>🌸You Win!🌸</h2>
-            <button onclick="restart()">✨Restart Game?✨</button>
-        </div>
-        <div class="lose">
-            <h1>💩You lose💩</h1>
-            <h2>🌻better luck next time🌻</h2>
-            
-        </div>
-    </div>
 
     <footer>
         <hr>

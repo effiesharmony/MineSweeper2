@@ -1,37 +1,43 @@
 'use strict'
 
-var gLevel = {
-    SIZE: 4,
-    MINES: 2
+var gLevels = {
+    beginner: {
+        SIZE: 4,
+        MINES: 2
+    },
+
+    medium: {
+        SIZE: 8,
+        MINES: 14
+    },
+
+    expert: {
+        SIZE: 12,
+        MINES: 32
+    }
+
 }
 var gBoard
 const MINE = '💣'
 
 var gMines = []
 
-// var gGame = {
-//     isOn: false,
-//     shownCount: 0,
-//     markedCount: 0,
-//     secsPassed: 0
-// }
-
-function onInit() {
-    buildBoard(gLevel.SIZE)
+function onInit(level) {
+    buildBoard(level)
     setMinesNegsCount(gBoard)
     renderBoard(gBoard)
     console.table(gBoard)
 }
 
 
-function buildBoard(size) {
+function buildBoard(level) {
     gBoard = []
     var emptyCells = []
 
-    for (var i = 0; i < size; i++) {
+    for (var i = 0; i < gLevels[level].SIZE; i++) {
         gBoard.push([])
 
-        for (var j = 0; j < size; j++) {
+        for (var j = 0; j < gLevels[level].SIZE; j++) {
             gBoard[i][j] = {
                 minesAroundCount: 0,
                 isShown: false,
@@ -43,10 +49,11 @@ function buildBoard(size) {
     }
     // gBoard[0][2].isMine = true
     // gBoard[2][3].isMine = true
-    createMines(emptyCells, gLevel.MINES)
+    createMines(emptyCells, gLevels[level].MINES)
 }
 
 function createMines(emptyCells, minesAmount) {
+    gMines = []
     for (var i = 0; i < minesAmount; i++) {
         var randomPos = emptyCells.splice(getRandomIntInclusive(0, emptyCells.length - 1), 1)[0]
         gMines.push(randomPos)
@@ -83,16 +90,16 @@ function renderBoard(board) {
     elBoard.innerHTML = strHTML
 }
 
-function lose(i, j) {
+function checkIfLose(i, j) {
     if (gBoard[i][j].isMine) {
-        // console.log(gBoard[i][j].isMine)
         for (var m = 0; m <= gMines.length - 1; m++) {
             gBoard[gMines[m].i][gMines[m].j].isShown = true
         }
+        lose()
     }
 }
 
-function win() {
+function checkIfWin() {
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard[i].length; j++) {
             if ((!gBoard[i][j].isMine && !gBoard[i][j].isShown) ||
@@ -104,9 +111,14 @@ function win() {
     win()
 }
 
-function win(){
+function win() {
     var elWin = document.querySelector('.win')
-    elWin.computedStyleMap.block
+    elWin.style.display = 'block'
+}
+
+function lose() {
+    var elLose = document.querySelector('.lose')
+    elLose.style.display = 'block'
 }
 
 function flag(i, j) {
@@ -114,7 +126,7 @@ function flag(i, j) {
     gBoard[i][j].isMarked = !gBoard[i][j].isMarked
     console.log(gBoard[i][j])
     renderBoard(gBoard)
-    win()
+    checkIfWin()
 }
 
 function setMinesNegsCount(board) {
@@ -142,7 +154,15 @@ function negsCount(cellI, cellJ) {
 function onCellClicked(i, j) {
     if (gBoard[i][j].isShown) return
     gBoard[i][j].isShown = true
-    lose(i, j)
-    win()
+    checkIfLose(i, j)
+    checkIfWin()
     renderBoard(gBoard)
+}
+
+function restart(level) {
+    var elLose = document.querySelector('.lose')
+    var elWin = document.querySelector('.win')
+    elLose.style.display = 'none'
+    elWin.style.display = 'none'
+    onInit(level)
 }
